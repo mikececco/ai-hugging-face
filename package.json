@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate deploy",
+    "prisma:production": "npm run prisma:generate && npm run prisma:migrate"
   },
   "dependencies": {
     "@huggingface/agents": "^0.0.5",
