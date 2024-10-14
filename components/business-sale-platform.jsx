@@ -5,11 +5,12 @@ import { useToast } from "@/hooks/use-toast"
 import { Sidebar } from "./sidebar"
 import { BusinessList } from "./business-list"
 import { BusinessForm } from "./business-form"
+import { LandingPage } from "./LandingPage"
 
 export function BusinessSalePlatformComponent() {
   const [businesses, setBusinesses] = useState([])
   const [searchTerm, setSearchTerm] = useState("")
-  const [activeView, setActiveView] = useState("all")
+  const [activeView, setActiveView] = useState("landing")
 
   const { toast } = useToast()
 
@@ -61,6 +62,14 @@ export function BusinessSalePlatformComponent() {
         variant: "destructive",
       })
     }
+  }
+
+  const handleGetStarted = () => {
+    setActiveView("all")
+  }
+
+  if (activeView === "landing") {
+    return <LandingPage onGetStarted={handleGetStarted} />
   }
 
   return (
